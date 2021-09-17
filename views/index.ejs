@@ -4,7 +4,9 @@
         <img src="/assets/ico.png" alt="">
         <h2>Bienvenidos a Control de ahorro</h2>
         <p>Llevá el control de tus ahorros actualizado a diario y llegá más rápido a tu objetivo</p>
+        <% if (!logueado) { %>
         <a href="/crear-cuenta"><button>CREAR CUENTA</button></a>
         <a href="/ingresar"><button>INGRESAR</button></a>
-    
+        <% } %>        
+
 <%- include('partials/footer.ejs') %>

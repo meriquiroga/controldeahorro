@@ -27,4 +27,7 @@ router.route('/crear-cuenta')
 .get(usersControllers.crearCuenta)
 .post(usersControllers.crearCuentaForm)
 
+router.route('/salir')
+.get(usersControllers.salir)
+
 module.exports = router

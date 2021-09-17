@@ -9,6 +9,9 @@
             <input type="email" name="email" id="email" placeholder="E-mail"/>
             <input type="password" name="password" placeholder="Contraseña"/>
             <input type="submit" value="CREAR CUENTA">
+            <% if (error) { %>
+                <p style="color: gray;"><%= error %></p>
+            <% } %>
         </form>
         <p>¿Ya tenés usuario? Ingresá aquí</p>
 </div>

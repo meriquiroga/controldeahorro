@@ -4,25 +4,42 @@ const Movimiento = require('../models/Movimiento')
 const movimientosControllers = {
     home: (req, res) => {
         res.render('index', {
-            title: 'Home'
+            title: 'Home',
+            logueado: req.session.logueado, 
+            name: req.session.name || ''
         })
-
     },
 
     balance: async (req, res) => {
+        if (req.session.logueado) {
+            const movimientos = await Movimiento.find()
+            res.render('balance', {
+                title: 'Balance',
+                movimientos,
+                error: null,
+                logueado: req.session.logueado, 
+                name: req.session.name || ''
+        })
+        }
+        res.redirect('/crear-cuenta')
+    },
+    // Ese crear cuenta debería ir a no autorizado y con botón que cree cuenta
+    // Andando antes de sessions
+    /* balance: async (req, res) => {
         const movimientos = await Movimiento.find()
         res.render('balance', {
             title: 'Balance',
             movimientos,
             error: null
         })
-    },
+    }, */
 
     editarPanel: (req, res) => {
         res.render('editar', {
             title: 'Editar movimiento',
             error: null,
-            editando: false
+            logueado: req.session.logueado, 
+            name: req.session.name || ''
         })
     },
 
@@ -36,9 +53,11 @@ const movimientosControllers = {
             await newMovimiento.save()
             res.redirect('/balance')
         } catch(error) {
-            res.render('nuevo-movimiento', {
-                title: 'Nuevo movimiento',
-                error: error
+            res.render('editar', {
+                title: 'Editar movimiento',
+                error: error,
+                logueado: req.session.logueado, 
+                name: req.session.name || ''
             })
 
         }
@@ -89,9 +108,11 @@ const movimientosControllers = {
     editar: async (req, res) => {
         let movimiento = await Movimiento.findOne({_id: req.params._id})
         res.render('editar', {
-           /*  title: 'Editar movimiento',
+            title: 'Editar movimiento',
             error: null,
-            editando:  */movimiento
+            editando: movimiento,
+            logueado: req.session.logueado, 
+            name: req.session.name || ''
         })
     }
 
