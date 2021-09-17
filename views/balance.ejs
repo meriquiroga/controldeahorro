@@ -1,0 +1,57 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+        <img class="ico" src="/assets/ico.png" alt="">
+        <h2>AHORRO: $</h2>
+        <p>Mi objetivo de ahorro: $</p>
+        <div class="movimientos">
+            <!-- <div class="cards">
+                <h4>Nuevo movimiento</h4>
+                <form action="/balance" method="POST">
+                    <input type="text" name="description" id="description" placeholder="Descripción" />
+                    <input type="number" name="number" id="number" placeholder="Importe" />
+                    <input type="submit" value="GUARDAR">
+                </form>
+            </div> -->
+            <!--             <div class="cards">
+                <h4>Egresos</h4>
+                <form>
+                    <input type="text" name="description" placeholder="Descripción"/>
+                    <input type="number" name="number" placeholder="Importe"/>
+                </form>
+                <button>GUARDAR</button> 
+            </div>
+ -->
+        <div class="cards">
+            <h4>Nuevo movimiento</h4>
+            <form action="/balance" method="POST">
+                <input type="text" name="description" id="description" placeholder="Descripción" required/>
+                <input type="number" name="number" id="number" placeholder="Importe" required/>
+                <input type="submit" value="GUARDAR">
+                <% if (error) { %>
+                    <p style="color: gray;"><%= error %></p>
+                <% } %>
+            </form>
+        </div>
+        </div>
+        <h4>Movimientos</h4>
+        <table>
+            <% if (movimientos.length === 0) { %>
+            <p>Aquí verás tus movimientos</p>
+            <% } else { %>
+            <% movimientos.forEach(movimiento => { %>
+            <thead>
+                <tr class="movimiento">
+                <th><%= movimiento.description %></th>
+                <th><%= movimiento.number %></th>
+                <th>
+                    <a href="/editar/<%= movimiento._id %>"><button>EDITAR</button></a>
+                    <a href="/eliminar/<%= movimiento._id %>"><button>ELIMINAR</button></a>
+                </th>
+            </tr>
+        </thead>
+            <% }) %>
+           <% } %>
+        </table>
+
+<%- include('partials/footer.ejs') %>

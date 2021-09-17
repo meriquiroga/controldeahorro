@@ -1,0 +1,16 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<img class="ico" src="/assets/ico.png" alt="">
+<div class="logSign">
+        <h4>¡Bienvenido! Creá tu cuenta aquí</h4>
+        <form action="/crear-cuenta" method="POST">
+            <input type="text" name="name" id="name" placeholder="Nombre y apellido"/>
+            <input type="email" name="email" id="email" placeholder="E-mail"/>
+            <input type="password" name="password" placeholder="Contraseña"/>
+            <input type="submit" value="CREAR CUENTA">
+        </form>
+        <p>¿Ya tenés usuario? Ingresá aquí</p>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -15,7 +15,7 @@ header {
   background-color: white;
   width: 100%;
   height: 80px;
-  padding: 0px 150px;
+  padding: 0px 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +54,7 @@ header a {
   text-align: center;
 }
 
-.movimientos input {
+form input[type="text"], [type="number"], [type="email"], [type="password"] {
   border: none;
   padding: 10px;
   border-radius: 20px;
@@ -76,4 +76,70 @@ main img,
 h3,
 p {
   margin: 20px;
+}
+
+.ico {
+  width: 50px;
+}
+
+.movimiento {
+  display: flex;
+}
+
+.movimiento th {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  width: 10vw;
+}
+
+.movimiento th:first-child {
+  width: 300px;
+  background-color: rosybrown;
+  text-align: left;
+}
+
+.movimiento th:nth-child(2n) {
+  width: 100px;
+  background-color: pink;
+  justify-content: right;
+}
+
+form input[type="submit"] {
+  background-color: #ffc439;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px;
+}
+
+a.active {
+  color: #ffb83c
+}
+
+.logSign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logSign form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logSign form input {
+  width: 400px;
+}
+
+.logSign input[type="submit"] {
+  background-color: #ffc439;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px;
+  width: 150px;
 }

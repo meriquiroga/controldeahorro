@@ -1,0 +1,15 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<img class="ico" src="/assets/ico.png" alt="">
+<div class="logSign">
+        <h4>¡Bienvenido! Ingresá a tu cuenta aquí</h4>
+        <form action="/ingresar" method="POST">
+            <input type="email" name="email" id="email" placeholder="E-mail"/>
+            <input type="password" name="password" placeholder="Contraseña"/>
+            <input type="submit" value="INGRESAR">
+        </form>
+        <p>¿Todavía no tenés cuenta? Ingresá aquí</p>
+</div>
+
+<%- include('partials/footer.ejs') %>

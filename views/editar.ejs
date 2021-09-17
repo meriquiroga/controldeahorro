@@ -1,0 +1,16 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<div class="cards">
+        <h4>Editar movimiento</h4>
+        <form action="/editar" method="POST">
+            <input type="text" name="description" id="description"/>
+            <input type="number" name="number" id="number"/>
+            <input type="submit" value="GUARDAR">
+            <% if (error) { %>
+                <p style="color: gray;"><%= error %></p>
+            <% } %>
+        </form>
+</div>
+
+<%- include('partials/footer.ejs') %>
