@@ -27,6 +27,7 @@
             <form action="/balance" method="POST">
                 <input type="text" name="description" id="description" placeholder="Descripción" required/>
                 <input type="number" name="number" id="number" placeholder="Importe" required/>
+                <input type="hidden" name="userId" id="userId" value="<%= logueado ? userId : null %>" />
                 <input type="submit" value="GUARDAR">
                 <% if (error) { %>
                     <p style="color: gray;"><%= error %></p>

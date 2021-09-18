@@ -3,9 +3,9 @@
 
 <div class="cards">
         <h4>Editar movimiento</h4>
-        <form action="/editar" method="POST">
-            <input type="text" name="description" id="description"/>
-            <input type="number" name="number" id="number"/>
+        <form action="/nuevo-movimiento" method="POST">
+            <input type="text" name="description" id="description" placeholder="Descripción" required/>
+            <input type="number" name="number" id="number" placeholder="Importe" required/>
             <input type="submit" value="GUARDAR">
             <% if (error) { %>
                 <p style="color: gray;"><%= error %></p>

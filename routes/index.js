@@ -12,6 +12,7 @@ router.route('/balance')
 
 router.route('/editar')
 .get(movimientosControllers.editarPanel)
+.post(movimientosControllers.guardarMovimiento) //este lo agregué para que funcione el editar desde afuera
 
 router.route('/eliminar/:_id')
 .get(movimientosControllers.eliminar)

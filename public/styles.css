@@ -17,7 +17,7 @@ header {
   height: 80px;
   padding: 0px 200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 

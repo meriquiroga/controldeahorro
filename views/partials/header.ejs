@@ -3,10 +3,10 @@
         <img src="/assets/logo.png" alt="">
     </div>
     <nav>
-        <a class="<%= title.includes('Home') ? 'active' : null %>" href="/">Home</a>
-        <a class="<%= title.includes('Balance') ? 'active' : null %>" href="/balance">Balance</a>
         <!-- <a class="<%= title.includes('Editar') ? 'active' : null %>" href="/editar">Editar movimiento</a> -->
         <% if (logueado) { %>
+            <a class="<%= title.includes('Home') ? 'active' : null %>" href="/">Home</a>
+            <a class="<%= title.includes('Balance') ? 'active' : null %>" href="/balance">Balance</a>    
             <a class="<%= title.includes('Salir') ? 'active' : null %>" href="/salir">Salir</a>
         <% } %>        
     </nav>

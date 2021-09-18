@@ -6,11 +6,31 @@ const movimientosControllers = {
         res.render('index', {
             title: 'Home',
             logueado: req.session.logueado, 
-            name: req.session.name || ''
+            name: req.session.name,
+            userId: req.session.userId
         })
     },
 
     balance: async (req, res) => {
+        if (req.session.logueado) {
+            try {
+                const movimientos = await Movimiento.find({userId: req.session.userId})
+                res.render('balance', {
+                title: 'Balance',
+                movimientos,
+                error: null,
+                logueado: req.session.logueado, 
+                name: req.session.name,
+                userId: req.session.userId
+        })
+        } catch(error) {
+            alert(error)
+        }
+    } 
+        res.redirect('/crear-cuenta')
+    },
+    
+    /* balance: async (req, res) => {
         if (req.session.logueado) {
             const movimientos = await Movimiento.find()
             res.render('balance', {
@@ -18,11 +38,12 @@ const movimientosControllers = {
                 movimientos,
                 error: null,
                 logueado: req.session.logueado, 
-                name: req.session.name || ''
+                name: req.session.name,
+                userId: req.session.userId
         })
         }
         res.redirect('/crear-cuenta')
-    },
+    }, */
     // Ese crear cuenta debería ir a no autorizado y con botón que cree cuenta
     // Andando antes de sessions
     /* balance: async (req, res) => {
@@ -39,16 +60,20 @@ const movimientosControllers = {
             title: 'Editar movimiento',
             error: null,
             logueado: req.session.logueado, 
-            name: req.session.name || ''
+            name: req.session.name,
+            userId: req.session.userId
         })
     },
 
     guardarMovimiento: async (req, res) => {
-        const {description, number} = req.body
+        const {description, number, userId} = req.body
         let newMovimiento = new Movimiento({
             description,
-            number 
+            number, 
+            userId 
         })
+        console.log(description)
+        console.log(number)
         try {
             await newMovimiento.save()
             res.redirect('/balance')
@@ -57,7 +82,8 @@ const movimientosControllers = {
                 title: 'Editar movimiento',
                 error: error,
                 logueado: req.session.logueado, 
-                name: req.session.name || ''
+                name: req.session.name,
+                userId: req.session.userId
             })
 
         }
@@ -112,7 +138,8 @@ const movimientosControllers = {
             error: null,
             editando: movimiento,
             logueado: req.session.logueado, 
-            name: req.session.name || ''
+            name: req.session.name,
+            userId: req.session.userId
         })
     }
 
