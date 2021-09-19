@@ -26,7 +26,7 @@ main {
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 60px;
   align-items: center;
 }
 
@@ -54,13 +54,14 @@ header a {
   text-align: center;
 }
 
-form input[type="text"], [type="number"], [type="email"], [type="password"] {
+form input[type="text"], [type="number"], [type="email"], [type="password"], [type="date"]  {
   border: none;
   padding: 10px;
   border-radius: 20px;
   text-align: center;
   margin: 10px;
   outline: none;
+  color: gray
 }
 
 button {
@@ -72,10 +73,14 @@ button {
   margin: 10px;
 }
 
-main img,
-h3,
+main
+h3, h4,
 p {
-  margin: 20px;
+  margin: 15px;
+}
+
+main img {
+  margin: 6px
 }
 
 .ico {
@@ -84,25 +89,53 @@ p {
 
 .movimiento {
   display: flex;
+  height: 50px;
 }
 
 .movimiento th {
   display: flex;
   align-items: center;
   padding: 0px 15px;
-  width: 10vw;
 }
 
 .movimiento th:first-child {
-  width: 300px;
-  background-color: rosybrown;
-  text-align: left;
+  width: 120px;
+  background-color: white;
+  text-align: center;
 }
 
 .movimiento th:nth-child(2n) {
-  width: 100px;
-  background-color: pink;
-  justify-content: right;
+  width: 300px;
+  background-color: white;
+  justify-content: left;
+}
+
+.movimiento th:nth-child(3n) {
+  width: 120px;
+  background-color: white;
+ justify-content: right;
+}
+
+.movimiento th:nth-child(4n) {
+  width: 120px;
+  background-color: white;
+ justify-content: center;
+}
+
+#tabla {
+  overflow-y: scroll;
+  max-height: 200px;
+  margin: 20px
+}
+
+#tabla::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+#tabla::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #ffc439;
 }
 
 form input[type="submit"] {

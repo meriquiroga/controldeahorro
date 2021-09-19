@@ -1,64 +1,56 @@
 <%- include('partials/head.ejs') %>
-    <%- include('partials/header.ejs') %>
+<%- include('partials/header.ejs') %>
+<% let ahorro=movimientos.reduce((sum, value)=> (sum + value.number) , 0) %>
 
-        <img class="ico" src="/assets/ico.png" alt="">
-        <h2>AHORRO: $ </h2>
-        <p>Mi objetivo de ahorro: $</p>
-        <div class="movimientos">
-            <!-- <div class="cards">
-                <h4>Nuevo movimiento</h4>
-                <form action="/balance" method="POST">
-                    <input type="text" name="description" id="description" placeholder="Descripción" />
-                    <input type="number" name="number" id="number" placeholder="Importe" />
-                    <input type="submit" value="GUARDAR">
-                </form>
-            </div> -->
-            <!--             <div class="cards">
-                <h4>Egresos</h4>
-                <form>
-                    <input type="text" name="description" placeholder="Descripción"/>
-                    <input type="number" name="number" placeholder="Importe"/>
-                </form>
-                <button>GUARDAR</button> 
-            </div>
- -->
-            <div class="cards">
-                <h4>Nuevo movimiento</h4>
-                <form action="/balance" method="POST">
-                    <input type="text" name="description" id="description" placeholder="Descripción" required />
-                    <input type="number" name="number" id="number" placeholder="Importe" required />
-                    <input type="hidden" name="userId" id="userId" value="<%= logueado ? userId : null %>" />
-                    <input type="submit" value="GUARDAR">
-                    <% if (error) { %>
-                        <p style="color: gray;">
-                            <%= error %>
-                        </p>
-                        <% } %>
-                </form>
-            </div>
-        </div>
-        <h4>Movimientos</h4>
-        <table>
-            <% if (movimientos.length===0) { %>
-                <p>Aquí verás tus movimientos</p>
-                <% } else { %>
-                    <% movimientos.forEach(movimiento=> { %>
-                        <thead>
-                            <tr class="movimiento">
-                                <th>
-                                    <%= movimiento.description %>
-                                </th>
-                                <th>
-                                    <%= movimiento.number %>
-                                </th>
-                                <th>
-                                    <a href="/editar/<%= movimiento._id %>"><button>EDITAR</button></a>
-                                    <a href="/eliminar/<%= movimiento._id %>"><button>ELIMINAR</button></a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <% }) %>
+
+            <img class="ico" src="/assets/ico.png" alt="">
+            <h4>¡Hola, <%= name %>!</h4>
+            <h2>AHORRO: $ <%= ahorro %></h2>
+            <p>Mi objetivo de ahorro: $</p>
+            <div class="movimientos">
+                <div class="cards">
+                    <h4>Nuevo movimiento</h4>
+                    <form action="/balance" method="POST">
+                        <input type="date" name="date" id="date" placeholder="Fecha" required />
+                        <input type="text" name="description" id="description" placeholder="Descripción" required />
+                        <input type="number" name="number" id="number" placeholder="Importe" required />
+                        <input type="hidden" name="userId" id="userId" value="<%= logueado ? userId : null %>" />
+                        <input type="submit" value="GUARDAR">
+                        <% if (error) { %>
+                            <p style="color: gray;">
+                                <%= error %>
+                            </p>
                             <% } %>
-        </table>
+                    </form>
+                </div>
+            </div>
+            <h4>Movimientos</h4>
+            <div id="tabla">
+                <table>
+                    <% if (movimientos.length===0) { %>
+                        <p>Aquí verás tus movimientos</p>
+                        <% } else { %>
+                            <% movimientos.forEach(movimiento=> { %>
+                                <thead>
+                                    <tr class="movimiento">
+                                        <th>
+                                            <%= movimiento.date %>
+                                        </th>
+                                        <th>
+                                            <%= movimiento.description %>
+                                        </th>
+                                        <th>
+                                            <%= movimiento.number %>
+                                        </th>
+                                        <th class="botones">
+                                            <a href="/editar/<%= movimiento._id %>"><img src="/assets/edit.png" alt=""></a>
+                                            <a href="/eliminar/<%= movimiento._id %>"><img src="/assets/delete.png" alt=""></a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <% }) %>
+                                    <% } %>
+                </table>
+            </div>
 
-        <%- include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>

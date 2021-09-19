@@ -55,8 +55,9 @@ const movimientosControllers = {
   }, */
 
   guardarMovimiento: async (req, res) => {
-    const { description, number, userId } = req.body;
+    const { date, description, number, userId } = req.body;
     let newMovimiento = new Movimiento({
+      date,
       description,
       number,
       userId,
@@ -80,24 +81,10 @@ const movimientosControllers = {
     await Movimiento.findOneAndDelete({ _id: req.params._id });
     res.redirect("/balance");
   },
-
-  /* editarPanel: async (req, res) => {
-    let movimiento = await Movimiento.findOne({ _id: req.params._id });
-    res.render("editar", {
-      title: "Editar movimiento",
-      error: null,
-      logueado: req.session.logueado,
-      name: req.session.name,
-      userId: req.session.userId,
-      movimientoId: req.params._id,
-      movimiento
-    });
-  }, */
   
   editar: async (req, res) => {
     try {
         let movimiento = await Movimiento.findOne({ _id: req.params._id });
-        console.log(movimiento)
         res.render("editar", {
             title: "Editar movimiento",
             error: null,
@@ -113,22 +100,9 @@ const movimientosControllers = {
   },
 
   guardarEditado: async (req, res) => {
-    let movimientoEditado = await Movimiento.findOneAndUpdate({ _id: req.params._id }, { ...req.body }, { new: true });
-    console.log(movimientoEditado)
+    await Movimiento.findOneAndUpdate({ _id: req.params._id }, { ...req.body }, { new: true });
     res.redirect("/balance");
   },
-
-  /* editar: async (req, res) => {
-    let movimiento = await Movimiento.findOne({ _id: req.params._id });
-    res.render("editar", {
-      title: "Editar movimiento",
-      error: null,
-      editando: movimiento,
-      logueado: req.session.logueado,
-      name: req.session.name,
-      userId: req.session.userId,
-    });
-  }, */
 
 };
 
