@@ -6,6 +6,9 @@ const usersControllers = require('../controllers/usersControllers')
 router.route('/')
 .get(movimientosControllers.home)
 
+router.route('/error')
+.get(movimientosControllers.error)
+
 router.route('/balance')
 .get(movimientosControllers.balance)
 .post(movimientosControllers.guardarMovimiento)

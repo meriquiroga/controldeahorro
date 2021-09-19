@@ -41,7 +41,13 @@ const usersControllers = {
         });
       }
     } catch (error) {
-      alert(error);
+      res.render("error", {
+        title: "Hubo un error",
+        error: error,
+        logueado: req.session.logueado,
+        name: req.session.name,
+        userId: req.session.userId,
+      });
     }
   },
   /* ingresarForm: async (req, res) => {
@@ -95,7 +101,13 @@ const usersControllers = {
         });
       }
     } catch (error) {
-      alert(error);
+      res.render("error", {
+        title: "Hubo un error",
+        error: error,
+        logueado: req.session.logueado,
+        name: req.session.name,
+        userId: req.session.userId,
+      });
     }
   },
 

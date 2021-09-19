@@ -12,6 +12,16 @@ const movimientosControllers = {
     });
   },
 
+  error: (req, res) => {
+    res.render("error", {
+      title: "Hubo un error",
+      error: null,
+      logueado: req.session.logueado,
+      name: req.session.name,
+      userId: req.session.userId,
+    });
+  },
+
   balance: async (req, res) => {
     if (req.session.logueado) {
       try {
@@ -27,7 +37,13 @@ const movimientosControllers = {
           userId: req.session.userId,
         });
       } catch (error) {
-        alert(error);
+        res.render("error", {
+          title: "Hubo un error",
+          error: error,
+          logueado: req.session.logueado,
+          name: req.session.name,
+          userId: req.session.userId,
+        });
       }
     }
     return res.redirect("/crear-cuenta");
@@ -67,8 +83,8 @@ const movimientosControllers = {
       res.redirect("/balance");
       
     } catch (error) {
-      res.render("editar", {
-        title: "Editar movimiento",
+      res.render("error", {
+        title: "Hubo un error",
         error: error,
         logueado: req.session.logueado,
         name: req.session.name,
@@ -94,8 +110,14 @@ const movimientosControllers = {
             movimientoId: req.params._id,
             movimiento
        });
-    } catch(error) {
-      console.log(error, 'Soy el error del editar')
+    } catch (error) {
+      res.render("error", {
+        title: "Hubo un error",
+        error: error,
+        logueado: req.session.logueado,
+        name: req.session.name,
+        userId: req.session.userId,
+      });
     }
   },
 

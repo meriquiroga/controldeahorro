@@ -5,7 +5,7 @@
 <div class="cards">
         <h4>Editar movimiento</h4>
         <form action="/editar/<%= movimientoId %>" method="POST">
-            <p><%= movimiento.date %></p>
+            <span><%= movimiento.date %></span>
             <input type="text" name="description" id="description" value="<%= movimiento.description %>" />
             <input type="number" name="number" id="number" value="<%= movimiento.number %>" />
             <input type="submit" value="GUARDAR">

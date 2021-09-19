@@ -2,7 +2,6 @@
 <%- include('partials/header.ejs') %>
 <% let ahorro=movimientos.reduce((sum, value)=> (sum + value.number) , 0) %>
 
-
             <img class="ico" src="/assets/ico.png" alt="">
             <h4>¡Hola, <%= name %>!</h4>
             <h2>AHORRO: $ <%= ahorro %></h2>
@@ -22,6 +21,7 @@
                             </p>
                             <% } %>
                     </form>
+                    <div class="recordar">Recordá cargar los egresos con signo negativo (-).</div>
                 </div>
             </div>
             <h4>Movimientos</h4>
