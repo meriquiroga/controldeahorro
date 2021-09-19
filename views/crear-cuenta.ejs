@@ -3,12 +3,12 @@
 
 <img class="ico" src="/assets/ico.png" alt="">
 <div class="logSign">
-        <h4>¡Bienvenido! Creá tu cuenta aquí</h4>
+        <h3>Creá tu cuenta aquí</h3>
         <form action="/crear-cuenta" method="POST">
             <input type="text" name="name" id="name" placeholder="Nombre" required/>
             <input type="email" name="email" id="email" placeholder="E-mail" required/>
             <input type="password" name="password" placeholder="Contraseña" required/>
-            <input type="number" name="objetivo" id="objetivo" placeholder="Tu objetivo de ahorro (ingresá un número)" required/>
+            <input type="number" name="objetivo" id="objetivo" placeholder="Ingresá tu objetivo de ahorro (número) -opcional-"/>
             <input type="submit" value="CREAR CUENTA">
             <% if (error) { %>
                 <p style="color: gray;"><%= error %></p>

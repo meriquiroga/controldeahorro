@@ -1,21 +1,22 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/header.ejs') %>
-<% let ahorro=movimientos.reduce((sum, value)=> (sum + value.number) , 0) %>
+<% let ahorro=movimientos.reduce((sum, value) => (sum + value.number), 0).toFixed(2) %>
 
             <img class="ico" src="/assets/ico.png" alt="">
             <h4>¡Hola, <%= name %>!</h4>
             <h2>AHORRO: $ <%= ahorro %></h2>
             <div class="objetivo">
-                <p>Mi objetivo de ahorro: $ <%= objetivo %></p>
+                <p>Tu objetivo de ahorro: $ <%= objetivo %></p>
                 <a href="/editar-objetivo/<%= userId %>"><img src="/assets/edit.png" alt=""></a>    
             </div>
             <div class="movimientos">
                 <div class="cards">
                     <h4>Nuevo movimiento</h4>
+                    <div class="recordar">Recordá cargar los egresos con signo negativo (-).</div>
                     <form action="/balance" method="POST">
                         <input type="date" name="date" id="date" placeholder="Fecha" required />
                         <input type="text" name="description" id="description" placeholder="Descripción" required />
-                        <input type="number" name="number" id="number" placeholder="Importe" required />
+                        <input type="number" step="0.01" name="number" id="number" placeholder="Importe" required />
                         <input type="hidden" name="userId" id="userId" value="<%= logueado ? userId : null %>" />
                         <input type="submit" value="GUARDAR">
                         <% if (error) { %>
@@ -24,7 +25,6 @@
                             </p>
                             <% } %>
                     </form>
-                    <div class="recordar">Recordá cargar los egresos con signo negativo (-).</div>
                 </div>
             </div>
             <h4>Movimientos</h4>
@@ -34,23 +34,23 @@
                         <p>Aquí verás tus movimientos</p>
                         <% } else { %>
                             <% movimientos.forEach(movimiento=> { %>
-                                <thead>
+                                <th>
                                     <tr class="movimiento">
-                                        <th>
+                                        <td>
                                             <%= movimiento.date %>
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             <%= movimiento.description %>
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             <%= movimiento.number %>
-                                        </th>
-                                        <th class="botones">
+                                        </td>
+                                        <td class="botones">
                                             <a href="/editar/<%= movimiento._id %>"><img src="/assets/edit.png" alt=""></a>
                                             <a href="/eliminar/<%= movimiento._id %>"><img src="/assets/delete.png" alt=""></a>
-                                        </th>
+                                        </td>
                                     </tr>
-                                </thead>
+                                </th>
                                 <% }) %>
                                     <% } %>
                 </table>
