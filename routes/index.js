@@ -17,6 +17,10 @@ router.route('/editar/:_id')
 .get(movimientosControllers.editar)
 .post(movimientosControllers.guardarEditado)
 
+router.route('/editar-objetivo/:_id')
+.get(usersControllers.editarObjetivo)
+.post(usersControllers.guardarObjetivoEditado)
+
 router.route('/eliminar/:_id')
 .get(movimientosControllers.eliminar)
 

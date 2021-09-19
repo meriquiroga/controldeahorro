@@ -1,5 +1,6 @@
 const path = require("path");
 const Movimiento = require("../models/Movimiento");
+const Usuario = require("../models/Usuario");
 
 const movimientosControllers = {
   home: (req, res) => {
@@ -8,6 +9,7 @@ const movimientosControllers = {
       error: null,
       logueado: req.session.logueado,
       name: req.session.name,
+      objetivo: req.session.objetivo,
       userId: req.session.userId,
     });
   },
@@ -18,22 +20,29 @@ const movimientosControllers = {
       error: null,
       logueado: req.session.logueado,
       name: req.session.name,
+      objetivo: req.session.objetivo,
       userId: req.session.userId,
     });
   },
 
   balance: async (req, res) => {
     if (req.session.logueado) {
+      
       try {
+        let usuario = await Usuario.findOne({ _id: req.session.userId });
+        req.session.objetivo = usuario.objetivo;
+        
         const movimientos = await Movimiento.find({
           userId: req.session.userId,
         });
+        
         return res.render("balance", {
           title: "Balance",
           movimientos,
           error: null,
           logueado: req.session.logueado,
           name: req.session.name,
+          objetivo: req.session.objetivo,
           userId: req.session.userId,
         });
       } catch (error) {
@@ -42,33 +51,13 @@ const movimientosControllers = {
           error: error,
           logueado: req.session.logueado,
           name: req.session.name,
+          objetivo: req.session.objetivo,
           userId: req.session.userId,
         });
       }
     }
     return res.redirect("/crear-cuenta");
   },
-  
-  /* balance: async (req, res) => {
-    if (req.session.logueado) {
-      try {
-        const movimientos = await Movimiento.find({
-          userId: req.session.userId,
-        });
-        res.render("balance", {
-          title: "Balance",
-          movimientos,
-          error: null,
-          logueado: req.session.logueado,
-          name: req.session.name,
-          userId: req.session.userId,
-        });
-      } catch (error) {
-        alert(error);
-      }
-    }
-    res.redirect("/crear-cuenta");
-  }, */
 
   guardarMovimiento: async (req, res) => {
     const { date, description, number, userId } = req.body;
@@ -88,6 +77,7 @@ const movimientosControllers = {
         error: error,
         logueado: req.session.logueado,
         name: req.session.name,
+        objetivo: req.session.objetivo,
         userId: req.session.userId,
       });
     }
@@ -106,6 +96,7 @@ const movimientosControllers = {
             error: null,
             logueado: req.session.logueado,
             name: req.session.name,
+            objetivo: req.session.objetivo,
             userId: req.session.userId,
             movimientoId: req.params._id,
             movimiento
@@ -116,6 +107,7 @@ const movimientosControllers = {
         error: error,
         logueado: req.session.logueado,
         name: req.session.name,
+        objetivo: req.session.objetivo,
         userId: req.session.userId,
       });
     }

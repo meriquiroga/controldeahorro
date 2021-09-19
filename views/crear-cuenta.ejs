@@ -8,12 +8,14 @@
             <input type="text" name="name" id="name" placeholder="Nombre" required/>
             <input type="email" name="email" id="email" placeholder="E-mail" required/>
             <input type="password" name="password" placeholder="Contraseña" required/>
+            <input type="number" name="objetivo" id="objetivo" placeholder="Tu objetivo de ahorro (ingresá un número)" required/>
             <input type="submit" value="CREAR CUENTA">
             <% if (error) { %>
                 <p style="color: gray;"><%= error %></p>
             <% } %>
         </form>
-        <p>¿Ya tenés usuario? Ingresá <a href="/ingresar">aquí</a></p>
+        <p>¿Ya tenés usuario? <a class="linkSign" href="/ingresar">Ingresá aquí</a></p>
+        <a class="volver" href="/"><button>VOLVER</button></a>          
 </div>
 
 <%- include('partials/footer.ejs') %>

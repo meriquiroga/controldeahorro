@@ -5,7 +5,10 @@
             <img class="ico" src="/assets/ico.png" alt="">
             <h4>¡Hola, <%= name %>!</h4>
             <h2>AHORRO: $ <%= ahorro %></h2>
-            <p>Mi objetivo de ahorro: $</p>
+            <div class="objetivo">
+                <p>Mi objetivo de ahorro: $ <%= objetivo %></p>
+                <a href="/editar-objetivo/<%= userId %>"><img src="/assets/edit.png" alt=""></a>    
+            </div>
             <div class="movimientos">
                 <div class="cards">
                     <h4>Nuevo movimiento</h4>

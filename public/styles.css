@@ -83,6 +83,7 @@ button {
   border-radius: 20px;
   text-align: center;
   margin: 10px;
+  cursor: pointer;
 }
 
 main
@@ -158,6 +159,7 @@ form input[type="submit"] {
   border-radius: 20px;
   text-align: center;
   margin: 10px;
+  cursor: pointer;
 }
 
 a.active {
@@ -180,6 +182,11 @@ a.active {
   width: 400px;
 }
 
+.linkSign {
+  color: gray;
+  text-decoration: none;
+}
+
 .logSign input[type="submit"] {
   background-color: #ffc439;
   border: none;
@@ -188,4 +195,19 @@ a.active {
   text-align: center;
   margin: 10px;
   width: 150px;
+}
+
+.volver button {
+  background-color: #ffc439;
+  padding: 5px 12px;
+  font-size: small;
+}
+
+.objetivo {
+  display: flex;
+  align-items: center;
+}
+
+.objetivo img {
+  width: 20px;
 }
