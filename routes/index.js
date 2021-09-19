@@ -10,15 +10,12 @@ router.route('/balance')
 .get(movimientosControllers.balance)
 .post(movimientosControllers.guardarMovimiento)
 
-router.route('/editar')
-.get(movimientosControllers.editarPanel)
-.post(movimientosControllers.guardarMovimiento) //este lo agregué para que funcione el editar desde afuera
+router.route('/editar/:_id')
+.get(movimientosControllers.editar)
+.post(movimientosControllers.guardarEditado)
 
 router.route('/eliminar/:_id')
 .get(movimientosControllers.eliminar)
-
-router.route('/editar/:_id')
-.get(movimientosControllers.editar)
 
 router.route('/ingresar')
 .get(usersControllers.ingresar)

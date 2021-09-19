@@ -82,6 +82,7 @@ const usersControllers = {
         req.session.logueado = true;
         req.session.name = agregarUser.name;
         req.session.userId = agregarUser._id;
+        req.session.movimiento = null;
         return res.redirect("/balance");
       } else {
         return res.render("crear-cuenta", {
