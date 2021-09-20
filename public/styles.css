@@ -284,6 +284,9 @@ a.active {
    justify-content: center;
    font-size: small;
   }
+  .logSign form input {
+    width: 320px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -321,4 +324,5 @@ a.active {
    justify-content: center;
    font-size: small;
   }
+
 }
