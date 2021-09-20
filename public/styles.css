@@ -193,7 +193,7 @@ a.active {
   text-decoration: none;
 }
 
-.logSign input[type="submit"] {
+/* .logSign input[type="submit"] {
   background-color: #ffb83c;
   border: none;
   padding: 10px 30px;
@@ -201,7 +201,7 @@ a.active {
   text-align: center;
   margin: 10px;
   width: 150px;
-}
+} */
 
 .volver button {
   background-color: #ffb83c;
