@@ -6,7 +6,7 @@
             <h4>¡Hola, <%= name %>!</h4>
             <h2>AHORRO: $ <%= ahorro %></h2>
             <div class="objetivo">
-                <p>Tu objetivo de ahorro: $ <%= objetivo %></p>
+                <p>Tu objetivo de ahorro: $ <%= objetivo.toFixed(2) %></p>
                 <a href="/editar-objetivo/<%= userId %>"><img src="/assets/edit.png" alt=""></a>    
             </div>
             <div class="movimientos">
@@ -43,7 +43,7 @@
                                             <%= movimiento.description %>
                                         </td>
                                         <td>
-                                             $ <%= movimiento.number %>
+                                             $ <%= (movimiento.number).toFixed(2) %>
                                         </td>
                                         <td class="botones">
                                             <a href="/editar/<%= movimiento._id %>"><img src="/assets/edit.png" alt=""></a>
