@@ -135,6 +135,7 @@ main img {
   width: 120px;
   background-color: white;
  justify-content: right;
+ text-align: right;
 }
 
 .movimiento td:nth-child(4n) {
@@ -238,6 +239,7 @@ a.active {
     width: 100px;
     background-color: white;
    justify-content: right;
+   text-align: right;
   }
   
   .movimiento td:nth-child(4n) {
@@ -279,6 +281,7 @@ a.active {
     background-color: white;
    justify-content: right;
    font-size: small;
+   text-align: right;
   }
   
   .movimiento td:nth-child(4n) {
@@ -319,6 +322,7 @@ a.active {
     background-color: white;
    justify-content: right;
    font-size: small;
+   text-align: right;
   }
   
   .movimiento td:nth-child(4n) {
