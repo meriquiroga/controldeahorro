@@ -121,6 +121,7 @@ main img {
   width: 120px;
   background-color: white;
   text-align: center;
+  justify-content: center;
 }
 
 .movimiento td:nth-child(2n) {
@@ -223,6 +224,7 @@ a.active {
     width: 120px;
     background-color: white;
     text-align: center;
+    justify-content: center;
   }
   
   .movimiento td:nth-child(2n) {
@@ -261,10 +263,11 @@ a.active {
     background-color: white;
     text-align: center;
     font-size: small;
+    justify-content: center;
   }
   
   .movimiento td:nth-child(2n) {
-    width: 150px;
+    width: 120px;
     background-color: white;
     justify-content: left;
     text-align: left;
@@ -272,7 +275,7 @@ a.active {
   }
   
   .movimiento td:nth-child(3n) {
-    width: 80px;
+    width: 100px;
     background-color: white;
    justify-content: right;
    font-size: small;
@@ -297,14 +300,14 @@ a.active {
     padding: 0px 5px;
   }
   .movimiento td:first-child {
-    width: 95px;
+    width: 90px;
     background-color: white;
     text-align: center;
     font-size: small;
   }
   
   .movimiento td:nth-child(2n) {
-    width: 160px;
+    width: 150px;
     background-color: white;
     justify-content: left;
     text-align: left;
@@ -312,14 +315,14 @@ a.active {
   }
   
   .movimiento td:nth-child(3n) {
-    width: 60px;
+    width: 80px;
     background-color: white;
    justify-content: right;
    font-size: small;
   }
   
   .movimiento td:nth-child(4n) {
-    width: 80px;
+    width: 70px;
     background-color: white;
    justify-content: center;
    font-size: small;

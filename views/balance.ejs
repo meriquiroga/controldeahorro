@@ -2,6 +2,7 @@
 <%- include('partials/header.ejs') %>
 <% let ahorro=movimientos.reduce((sum, value) => (sum + value.number), 0).toFixed(2) %>
 
+
             <img class="ico" src="/assets/ico.png" alt="">
             <h4>¡Hola, <%= name %>!</h4>
             <h2>AHORRO: $ <%= ahorro %></h2>
@@ -37,7 +38,7 @@
                                 <th>
                                     <tr class="movimiento">
                                         <td>
-                                            <%= movimiento.date %>
+                                            <%= movimiento.date.getDate() %>/<%= movimiento.date.getMonth() %>/<%= movimiento.date.getFullYear().toString().substr(2,2) %>
                                         </td>
                                         <td>
                                             <%= movimiento.description %>

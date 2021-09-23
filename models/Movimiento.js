@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const movimientoSchema = new mongoose.Schema({
-    date: {type: String},
+    date: {type: Date, default: Date.now},
     description: {type: String},
     number: {type: Number},
     userId: {type: mongoose.Types.ObjectId, ref: 'usuario'}
